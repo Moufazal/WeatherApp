@@ -1,0 +1,15 @@
+body{
+    margin: 0;
+}
+
+#main{
+    min-height: 100vh;
+    background-image: url('../images/weather.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#mapid{
+    width: 500px;
+    height: 500px;
+}

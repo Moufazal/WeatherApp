@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SignUp Page</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CSS file -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <main id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center text-white mt-4">Weather APP - Sign Up</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-2 text-white">
+                    <p>Create your account :</p>
+                    <form action="/signup" method="POST" class="form-inline">
+                        <div class="form-group mb-2">
+                          <label for="username" class="sr-only">Username</label>
+                          <input type="text" class="form-control" id="username" name="username" value="" placeholder="Username">
+                        </div>
+                        <div class="form-group ml-3 mb-2">
+                          <label for="email" class="sr-only">Email</label>
+                          <input type="text" class="form-control" id="email" name="email" value="" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                          <label for="password" class="sr-only">Password</label>
+                          <input type="password" class="form-control" id="password" name="pwd" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Create account</button>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-12 text-warning mt-2">
+                    <p>
+                        Your account was successfully created. Please click Sign in button to access your profil.
+                        <span><a href="/signin" class="btn btn-warning">Sign in</a></span>
+                    </p>
+                </div>
+            </div> -->
+        </div>
+    </main>
+</body>
+
+</html>

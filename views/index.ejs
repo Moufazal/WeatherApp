@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- CDN Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/7ad7a46aef.js" crossorigin="anonymous"></script>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+   <!-- Leaflet Script -->
+   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+
+    <title>Weather App</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <nav class="navbar navbar-light bg-dark">
+            <a class="navbar-brand text-white" href="/">
+              <span class="mr-2" style="font-size:30px; color:yellow; vertical-align: middle;">
+                <i class="fas fa-sun"></i>
+              </span>
+              Bootstrap
+            </a>
+            <a class="navbar-brand text-white" href="/logout">
+              Deconnexion
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12 col-md-6">
+          <form action="/" method="POST">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter city name" name="cityName" value="">
+            <div class="input-group-append">
+              <button class="btn btn-warning" type="submit">Add</button>
+            </div>
+          </div>
+          </form>
+          <input type="hidden" id="cityValue" name="" value="<%= villeTrouvee %>">
+          <p id="txtVilleIntrouvable" class="text-danger d-none">La ville saisie est introuvable.</p>
+        </div>
+      </div>
+      <div class="row justify-content-md-center mt-1">
+        <div id="mapid"></div>
+        <div class="col-12 col-md-6">
+          <p class="text-center mt-2">
+            Update Cities
+            <a href="/updateCities"><i class="fas fa-sync"></i></a>
+          </p>
+          <% 
+            if(weatherData.length > 0){
+              for (var i = 0; i < weatherData.length; i++){
+                console.log('img de la meteo :', weatherData[i].img);
+          %>
+          <div class="allCities border p-3 d-flex justify-content-between align-items-center bg-dark text-white" data-lat="<%= weatherData[i].latitude %>" data-lon="<%= weatherData[i].longitude %>" data-cityname="<%=weatherData[i].name%>">
+            <span id="citiesName"> <%=weatherData[i].name%> </span>
+            <span>
+              <span> <%=weatherData[i].desc%> </span>
+              <span><img src="http://openweathermap.org/img/wn/<%=weatherData[i].img%>.png" alt="weather_img"></span>
+              <span class="badge badge-warning"> <%=weatherData[i].temp_max%>°c </span>
+              <span class="badge badge-secondary"> <%=weatherData[i].temp_min%>°c</span>
+            </span>
+            <a href="/deleteCity?id=<%=weatherData[i]._id%>"> <i class="far fa-trash-alt pictoRemoveCity text-warning"></i></a>
+          </div>
+          <% 
+             } 
+           } else {
+          %>
+          <div class="border p-3 text-danger text-center">
+            Please add a city to view his weather.
+          </div>
+          <% 
+            }
+          %>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../javascripts/script.js"></script>
+  </body>
+
+</html>
