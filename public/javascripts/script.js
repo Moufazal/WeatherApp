@@ -1,19 +1,9 @@
-console.log("click détecté");
 var etatVille = document.getElementById("cityValue").value;
-console.log("statut de la ville :", etatVille);
 var txtCityNotFound = document.getElementById("txtVilleIntrouvable");
 
     if (etatVille == 0){
         txtCityNotFound.classList.remove("d-none");
     };
-
-
-// API OPENWEATHERMAP INFOS:
-    //API KEYS in account: https://home.openweathermap.org/api_keys
-    // How to start: https://openweathermap.org/appid
-    // Current weatherData: https://openweathermap.org/current#name
-    // Weather Icon: https://openweathermap.org/weather-conditions
-
 
 
 
@@ -28,15 +18,13 @@ var txtCityNotFound = document.getElementById("txtVilleIntrouvable");
               }
             );
 
-
     // Dsiplay map
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(mymap);
 
-    // Add marker and popup for each city
+    // Add marker and popup for each cities
     var citiesList = document.querySelectorAll('.allCities');
-    console.log('citiesList:', citiesList);
     var marker;
 
     for (var i=0; i < citiesList.length; i++){
